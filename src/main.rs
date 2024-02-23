@@ -49,3 +49,4 @@ fn main() {
         println!("{} code without comments:\n{}", lang.0, remove_comments(code, lang));
     }
 }
+
