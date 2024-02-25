@@ -1,6 +1,7 @@
 1	
-2	This is a block of text. As John Smith says /* to be or 
+2	This is a block of text. As John Smith says /* Too be or 
 3	not to be */ but what is the question? // This is a comment
 4 
-5	/* test */ 1234
+5	1234 /* test */ 5678
 6
+
