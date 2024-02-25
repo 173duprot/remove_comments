@@ -1,0 +1,5 @@
+1	
+2	This is a block of text. As John Smith says /*to be or 
+3	not to be*/ but what is the question? // This is a comment
+4 
+5

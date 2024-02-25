@@ -1,19 +1,20 @@
-extern crate regex;
-
 use regex::Regex;
+use std::fs;
 
 fn main() {
-    let input = r#"
-    This is a block of text. As John Smith says /*to be or 
-    not to be*/ but what is the question? // This is a comment
-    "#;
+    let input = fs::read_to_string("input.txt").expect("Failed to read input file");
 
-    let output = Regex::new(r#"(?s)/\*.*?\*/|//.*$"#).unwrap()
+    let output = Regex::new(r#"/\*.*?\*/|//.*(?:\n|\r\n?)|(?s)/\*.*?\*/"#).unwrap()
         .replace_all(&input, |caps: &regex::Captures| {
-            caps.get(0).unwrap().as_str()
-                .chars()
-                .map(|c| if c == '\n' || c == '\r' { c } else { ' ' })
-                .collect::<String>()
+            if let Some(comment) = caps.get(0) {
+                let matched_text = comment.as_str();
+                matched_text
+                    .chars()
+                    .map(|c| if c == '\n' || c == '\r' { c } else { ' ' })
+                    .collect::<String>()
+            } else {
+                String::new()
+            }
         });
 
     assert_eq!(input.lines().count(), output.lines().count(), "Number of lines changed!");
