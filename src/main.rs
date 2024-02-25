@@ -4,7 +4,7 @@ use std::fs;
 fn main() {
     let input = fs::read_to_string("input.txt").expect("Failed to read input file");
 
-    let output = Regex::new(r#"/\*.*?\*/|//.*(?:\n|\r\n?)|(?s)/\*.*?\*/"#).unwrap()
+    let output = Regex::new(r#"//.*(?:\n|\r\n?)|(?s)/\*.*?\*/"#).unwrap()
         .replace_all(&input, |caps: &regex::Captures| {
             if let Some(comment) = caps.get(0) {
                 let matched_text = comment.as_str();
