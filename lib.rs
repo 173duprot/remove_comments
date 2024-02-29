@@ -19,4 +19,3 @@ pub fn keep_newlines(input: &str) -> String {
 pub fn keep_nothing(input: &str) -> String {
     RE.replace_all(input, "").to_string()
 }
-
