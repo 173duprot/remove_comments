@@ -1,5 +1,5 @@
 [package]
-name = "rcm"
+name = "remove_comments"
 version = "0.1.0"
 edition = "2021"
 readme = "README.md"
@@ -14,5 +14,5 @@ lazy_static = "1.4.0"
 regex = "1.10.3"
 
 [lib]
-name = "rcm"
+name = "remove_comments"
 path = "lib.rs"
